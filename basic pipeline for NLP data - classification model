@@ -72,7 +72,7 @@ pl = Pipeline([
     # Import the hashing vectorizer
 from sklearn.feature_extraction.text import HashingVectorizer
 
-# Instantiate the winning model pipeline: pl
+# full poer pipe
 pl = Pipeline([
         ('union', FeatureUnion(
             transformer_list = [
