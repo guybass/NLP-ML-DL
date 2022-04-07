@@ -36,8 +36,8 @@ pl = Pipeline([
                 ])),
                 ('text_features', Pipeline([
                     ('selector', get_text_data),
-                    ('vectorizer', ____(____=____,
-                                                   ____=____)),
+                    ('vectorizer', CountVectorizer(token_pattern=TOKENS_ALPHANUMERIC,
+                                                   ngram_range=(1,2))),
                     ('dim_red', SelectKBest(chi2, chi_k))
                 ]))
              ]
