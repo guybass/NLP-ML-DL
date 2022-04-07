@@ -1,3 +1,5 @@
+"""this is a specialy good for implementing polyfeatures on the countervectorizer"""
+
 from itertools import combinations
 
 import numpy as np
