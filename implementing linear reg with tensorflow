@@ -1,0 +1,23 @@
+import tensorflow as tf
+import numpy as np
+import pandas as pd
+
+# Define the linear regression model
+def linear_regression(params, features):
+	return -params[0] + sum([params[i]*features[i] for i in range(1, len(params) +`1)])
+
+# Define the loss function
+def loss_function(params, targets, features):
+	# Set the predicted values
+	predictions = linear_regression(params, features)
+  
+	# Use the mean absolute error loss
+	return keras.losses.mae(targets, predictions)
+
+# Define the optimize operation
+opt = keras.optimizers.Adam()
+
+# Perform minimization and print trainable variables
+for j in range(10):
+	opt.minimize(lambda: loss_function(params, target, features), var_list=[params, target, features])
+	print_results(params)
