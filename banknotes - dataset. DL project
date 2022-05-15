@@ -1,4 +1,15 @@
+import numpy as np
+import pandas as pd
 import seaborn as sns
+from keras.models import Sequential
+from keras.layers import Dense
+from sklearn.model_selection import train test split
+
+# The data set is loaded as df by the- the path of my P.C is not relevant
+
+X = df[['variance', 'skewness', 'curtosis', 'entropy']]
+y = y df['class']
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.3)
 
 # Pairplot 
 sns.pairplot(banknotes, hue='class') 
@@ -28,4 +39,26 @@ Observations per class:
  real    53
 fake    43
 Name: class, dtype: int64
+"""
+
+# Create a sequential model
+model = Sequential()
+
+# Add a dense layer 
+model.add(Dense(1, input_shape=(4,), activation='sigmoid'))
+
+# Compile 
+model.compile(loss='binary_crossentropy', optimizer='sgd', metrics=['accuracy'])
+
+# Train your model for 20 epochs
+model.fit(X_train, y_train, epochs = 200)
+
+# Evaluate your model accuracy on the test set
+accuracy = model.evaluate(X_test, y_test)[1]
+
+# Print accuracy
+print('Accuracy:', accuracy)
+"""
+print:
+Accuracy: 0.9781553398058253
 """
